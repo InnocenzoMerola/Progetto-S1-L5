@@ -40,6 +40,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
         $errors = [];
 
+
+        if($anno < 1000){
+          $errors['anno_pubblicazione'] = "Anno non valido";
+        }
+
+
         $titolo = $_POST['titolo'] ?? $titolo;
         $autore = $_POST['autore'] ?? $autore;
         $genere = $_POST['genere'] ?? $genere;

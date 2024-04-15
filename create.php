@@ -12,9 +12,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
         $errors = [];
 
-        // if($anno < 1000){
-        //     $errors['anno_pubblicazione'] = "Anno non valido";
-        // }
+        if($anno < 1000){
+            $errors['anno_pubblicazione'] = "Anno non valido";
+        }
 
         if($errors === []){
             $stmt = $pdo->prepare('INSERT INTO libri (titolo, autore, genere, anno_pubblicazione, image, descrizione) VALUES (:titolo, :autore, :genere, :anno_pubblicazione, :image, :descrizione)');
