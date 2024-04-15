@@ -10,7 +10,7 @@
     <body>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Libreria</a>
+                <img src="https://st2.depositphotos.com/2404187/7392/v/450/depositphotos_73929527-stock-illustration-online-library-education-concept-flat.jpg" alt="" style="width: 50px">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>

@@ -10,9 +10,10 @@ $limit = $_GET['limit'] ?? 8;
 $limit = $limit > 8 ? 2 : $limit;
 $offset = ($page - 1) * $limit;
 
-$stmt = $pdo->prepare('SELECT * FROM libri WHERE titolo LIKE :search LIMIT :limit OFFSET :offset');
+$stmt = $pdo->prepare('SELECT * FROM libri WHERE titolo LIKE :search OR genere LIKE :searchGen LIMIT :limit OFFSET :offset');
 $stmt->execute([
     'search' => "%$search%",
+    'searchGen' => "%$search%",
     'offset'=> $offset,
     'limit'=> $limit,
 ]);
@@ -45,8 +46,9 @@ include __DIR__ . "/includes/initial.php"
                         <p class="card-text mb-0"><?= $row['anno_pubblicazione'] ?></p>
                     </div>
                     <div class="d-flex mt-2 justify-content-end gap-2 border-top border-1 py-2">
-                        <a class="btn btn-info" class="text-white text-decoration-none" href="http://localhost/IFOA-BackEnd/Progetto%20S1-L5/edit.php?id=<?= $row['id'] ?>">Modifica</a>
-                        <a class="btn btn-danger" class="text-white text-decoration-none" href="http://localhost/IFOA-BackEnd/Progetto%20S1-L5/delete.php?id=<?= $row['id'] ?>">Elimina</a>
+                        <a class="btn btn-info text-white text-decoration-none" href="http://localhost/IFOA-BackEnd/Progetto%20S1-L5/detail.php?id=<?= $row['id'] ?>">Dettagli</a>
+                        <a class="btn btn-success text-white text-decoration-none" href="http://localhost/IFOA-BackEnd/Progetto%20S1-L5/edit.php?id=<?= $row['id'] ?>">Modifica</a>
+                        <a class="btn btn-danger text-white text-decoration-none" href="http://localhost/IFOA-BackEnd/Progetto%20S1-L5/delete.php?id=<?= $row['id'] ?>">Elimina</a>
                     </div>
                 </div>
             </div>
